@@ -1,38 +1,38 @@
-title: Introduction
+title: 導入
 ---
 
-## What kind of game is Screeps
+## スクリープとはどんなゲーム？
 
-Screeps is a massive multiplayer online real-time strategy game. Each player can create their own colony in a **single persistent world** shared by all the players. Such a colony can mine **resources**, build **units**, conquer **territory**. As you conquer more territory, your influence in the game world grows, as well as your abilities to expand your footprint. However, it requires a lot of effort on your part, since multiple players may aim at the same territory.
+Screepsは、多人数参加型オンラインリアルタイムストラテジーゲームです。各プレイヤーは、全プレイヤーが共有する**単一の永続的な世界**に自分のコロニーを作成することができます。このようなコロニーでは、**資源**の採掘、**ユニットの建設、**領土**の征服が可能です。より多くの領土を征服すればするほど、ゲーム世界におけるあなたの影響力は大きくなり、また、あなたの足跡を拡大する能力も高まります。ただし、複数のプレイヤーが同じ領土を狙うこともあるので、自分の努力も必要です。
 
-Screeps is developed for people with **programming skills**. Unlike some other RTS games, your units in Screeps can react to events without your participation – provided that you have programmed them properly. And, unlike other MMO, you do not have to play Screeps constantly to play well. It is quite enough just to check once in a while to see if everything goes well.
+Screepsは、**プログラミングのスキル**を持つ人々のために開発されています。他のRTSゲームとは異なり、Screepsのユニットは、あなたが参加しなくても出来事に反応することができます - あなたが適切にプログラムしている場合に限ります。また、他のMMOとは異なり、Screepsは常にプレイしていなくても十分に楽しむことができます。たまに、うまくいっているかどうかを確認する程度で十分なのです。
 
-## Game world
+## ゲームの世界
 
-The game world consists of interconnected **rooms**. A room is a closed space 50x50 cells in size. It may have from 1 to 4 exits to other rooms. The world is separated into **shards** which are connected by intershard portals. You can consider shards a Z-axis of the world.
+ゲームの世界は、相互に接続された**ルーム**で構成されています。ルームとは、50×50マスの大きさの閉じた空間です。ルームには他のルームへの出口が1～4個あります。世界は**シャード**に分かれており、シャード間のポータルでつながっています。シャードは世界のZ軸と考えることができます。
 
 ![](img/shards.png)
 
-Each room landscape is unique. The view of each room is generated procedurally and consists of three types of surface:
+各部屋の風景はユニークです。各部屋の景色はプロシージャルに生成され、次の3種類の床で構成されています。
 
-*   **Plain land** – simple ground with a movement cost of 2.
-*   **Swamps** increase a movement cost to 10.
-*   **Walls** block movement of all creeps. 
+* **平地** は移動コストが2の単純な地面です。
+* **沼地** は移動コストが10に増加した地面です。
+* **絶壁** はすべてのクリープの移動をブロックします。
 
-You can customize the room landscape with the help of the following facilities:
+次の設備を使用し、ルームの景観をカスタマイズすることができます。
 
-*   **Roads** decrease a movement cost to 1. Roads deteriorate due to movement and require repair.
-*   **Constructed walls** can be created by players. Unlike natural walls, they may be attacked and destroyed by creeps.
-*   **Ramparts** are your defenses. Only your creeps may move inside your ramparts. Besides, a creep inside a rampart cell cannot be attacked until the rampart is destroyed (though it can attack others). Ramparts deteriorate with each game cycle and require repair.
+* **道路** は移動コストが1減少します。道路は移動によって劣化し、修理が必要になります。
+* **壁** はプレイヤーが作成することができます。絶壁とは異なり、クリープに攻撃され破壊される可能性があります。
+* **城壁** はあなたの防衛手段です。城壁は自分のクリープのみが移動することができます。また、城壁の中にいるクリープは城壁が破壊されるまで攻撃されることはありません（他のクリープを攻撃することは可能です）。城壁はゲームサイクルごとに劣化し、修理が必要になります。
 
-In the beginning of the game, you are free to choose the place for your new colony in one of the free rooms inside the zone of the game world available for settlement. After your first spawn is set up, your room will be in **safe mode**. Use this time to create good defenses, or any player will be able to destroy your colony!
+ゲーム開始当初は、ゲームワールドの入植可能なゾーン内のフリールームの中から、自由に新しいコロニーの場所を選ぶことができます。最初のスポーンが設定された後、あなたの部屋は**セーフモード**になります。この間にしっかりと防御を固めておかないと、どんなプレイヤーでもあなたのコロニーを破壊できてしまいますよ。
 
-## Your colony
+## あなたのコロニー
 
 **![](img/colony-center.png)**
 
-**Energy sources** are the main game resource. They can be harvested by worker creeps. The amount of energy in a source is limited, but resumes once in 300 game ticks.
+**エネルギー源**は、ゲームの主要な資源です。ワーカークリープによって収穫することができる。エネルギー源に含まれるエネルギー量は限られていますが、300ゲームティックで一度だけ復活します。
 
-**Spawns** are your colony centers. They can accumulate mined energy and use it to create your units. There may be no more than 3 spawns in a room. Hence, by building 3 spawns in a room you actually conquer it. You can have multiple spawns totally in all your rooms though.
+**スポーン**はあなたのコロニーセンターです。採掘されたエネルギーを蓄積し、それを使ってユニットを作成することができます。スポーンは1つの部屋に3つまでしか置けません。したがって、1つの部屋に3つのスポーンを建設することで、実際にその部屋を征服することになります。ただし、すべての部屋に複数のスポーンを設置することは可能です。
 
-A spawn itself can build only basic units. In order to build more complex ones, you have to construct one or more spawn **extensions**. Read more about that in the next article.
+スポーン自体は基本的なユニットしか作れません。より複雑なものを作るには、1つ以上の**スポーン拡張機能**を構築する必要があります。詳しくは、次の記事で説明します。
